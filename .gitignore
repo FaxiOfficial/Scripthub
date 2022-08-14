@@ -1,18 +1,128 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Venuine", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-# Other files and folders
-.settings/
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Main = Tab:AddSection({
+	Name = "Main"
+})
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+OrionLib:MakeNotification({
+	Name = "Venuine!",
+	Content = "0.46 Loaded The key will change tommorow use it while you can",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+local Tab = Window:MakeTab({
+	Name = "Relevant",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Relevant = Tab:AddSection({
+	Name = "Relevant"
+})
+
+Relevant:AddToggle({
+	Name = "Bypassed Fly",
+	Default = false,
+	Callback = function(Value)
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/zackdoesstuff/ROBLOX-Fly-Script/main/Fly%20Script')))()
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Misc = Tab:AddSection({
+	Name = "Misc"
+})
+
+Misc:AddToggle({
+	Name = "Arms off",
+	Default = false,
+	Callback = function(Value)
+		loadstring(game:HttpGet(('cdn.wearedevs.net/scripts/Remove%20Arms.txt'))()')))()
+	end    
+})
+
+Misc:AddToggle({
+	Name = "Left Click + Click Teleport",
+	Default = false,
+	Callback = function(Value)
+loadstring(game:HttpGet('cdn.wearedevs.net/scripts/Click%20Teleport.txt'))()
+    end   
+})
+
+Misc:AddToggle({
+	Name = "E To change gravity",
+	Default = false,
+	Callback = function(Value)
+loadstring(game:HttpGet('https://cdn.wearedevs.net/scripts/Gravity%20Switch.txt'))()
+    end   
+})
+
+local Tab = Window:MakeTab({
+	Name = "LocalPlayer",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local LocalPlayer = LocalPlayer:AddSection({
+	Name = "Speed & Jump"
+})
+
+LocalPlayer:AddSlider({
+	Name = "Walkspeed",
+	Min = 16,
+	Max = 500,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.Walkspeed = 5
+	end    
+})
+
+LocalPlayer:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 150,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Jump",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 5
+	end    
+})
+
+Tab:AddDropdown({
+	Name = "Fly Type",
+	Default = "1",
+	Options = {"Bypassed Fly", "Normal Fly"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+Dropdown:Set("Bypassed Fly")
+Dropdown:Set("Normal Fly")
+
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Relevant = Tab:AddSection({
+	Name = "Credits"
+})
+OrionLib:Init()

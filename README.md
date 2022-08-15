@@ -1,2 +1,0 @@
-# Scripthub
-yeh
